@@ -32,7 +32,7 @@
 
         var time = Date.now();
         var _tick = 0;
-        var _maxDeltaTime = 500;
+        var _maxDeltaTime = 5000;
         var _totalDeltaTime = 0;
         var frameStr = "";
 
@@ -44,6 +44,7 @@
             time = now;
             if(_totalDeltaTime > _maxDeltaTime){
                 frameStr = Math.floor(_tick * 1000 / _totalDeltaTime).toString();
+                console.log(frameStr);
                 _tick = 0;
                 _totalDeltaTime = 0;
             }
