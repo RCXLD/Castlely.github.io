@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>HelloWorld</title>
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no"/>
+</head>
+<body>
+<canvas id="testCanvas">
+
+</canvas>
+<script>
+    var run = function (){
+        var requestAnimationFrame = window["requestAnimationFrame"] || window["webkitRequestAnimationFrame"] ||
+                window["mozRequestAnimationFrame"] || window["oRequestAnimationFrame"] || window["msRequestAnimationFrame"];
+        if(true){
+            requestAnimationFrame = function (callback) {
+                return window.setTimeout(callback, 1000/60);
+            };
+        }
+
+        var width = 480;
+        var height = 800;
+
+        var canvas = document.getElementById("testCanvas");
+        canvas.width = width;
+        canvas.height = height;
+        document.documentElement.appendChild(canvas);
+
+        var ctx = canvas.getContext("2d");
+
+        var time = Date.now();
+        var _tick = 0;
+        var _maxDeltaTime = 500;
+        var _totalDeltaTime = 0;
+        var frameStr = "";
+
+
+        var loop = function (){
+            _tick++;
+            var now = Date.now();
+            _totalDeltaTime += now - time;
+            time = now;
+            if(_totalDeltaTime > _maxDeltaTime){
+                frameStr = Math.floor(_tick * 1000 / _totalDeltaTime).toString();
+                _tick = 0;
+                _totalDeltaTime = 0;
+            }
+            ctx.fillStyle = "#000000";
+            ctx.fillRect(0,0,width,height);
+
+            var size = 40;
+            var fontFamily = "Arial";
+            var font = size + "px " + fontFamily;
+            ctx.font = font;
+
+            ctx.fillStyle = "#00ff00";
+
+            ctx.fillText(frameStr, 0, 100, 0xFFFF);
+
+            requestAnimationFrame(loop);
+
+            //模拟比较卡的情况
+            for(var i = 0 ; i < 1000000 ; i++){
+                var test = Math.random();
+            }
+        };
+
+        loop();
+    };
+
+    setTimeout(run,1000);
+</script>
+
+</body>
+</html>
