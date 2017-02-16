@@ -44,7 +44,7 @@
             time = now;
             if(_totalDeltaTime > _maxDeltaTime){
                 frameStr = Math.floor(_tick * 1000 / _totalDeltaTime).toString();
-                console.log(frameStr);
+                console.log("fps: "+frameStr);
                 _tick = 0;
                 _totalDeltaTime = 0;
             }
