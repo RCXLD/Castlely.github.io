@@ -4,19 +4,22 @@
     <title>Mocha</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="mocha.css" />
+    
   </head>
   <body>
-    <div id="mocha"></div>
-    <script src="mocha.js"></script>
-    <script>mocha.setup('bdd');</script>
-    <script src="tests.js"></script>
+
   </body>
 
 
-  <script>
-    mocha.setup('bdd');
-  </script>
+
+</html>
+
+
+<link rel="stylesheet" href="mocha.css" />
+    <div id="mocha" ></div>
+    <script src="mocha.js"></script>
+    <script>mocha.setup('bdd');</script>
+    <script src="tests.js"></script>
   <script >
     function add(x, y) {
       return x + y;
@@ -36,8 +39,18 @@
           expect(add(0, 0)).to.be.equal(0);
         });
       });
+
+      describe('log', function() {
+        it('console日志', function() {
+          console.log(123);
+        });
+
+        it('error', function() {
+          console.error(456);
+        });
+      });
+
   </script>
   <script>
     mocha.run();
   </script>
-</html>
