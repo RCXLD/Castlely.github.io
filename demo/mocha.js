@@ -6899,10 +6899,8 @@ BrowserStdout.prototype._write = function(chunks, encoding, cb) {
   var output = chunks.toString ? chunks.toString() : chunks
   if (this.label === false) {
     console.log(output)
-    alert(output);
   } else {
     console.log(this.label+':', output)
-    alert(output);
   }
   process.nextTick(cb)
 }
