@@ -6902,7 +6902,9 @@ BrowserStdout.prototype._write = function(chunks, encoding, cb) {
   if (this.label === false) {
     console.log(output)
   } else {
-    console.log(this.label+':', output)
+    //console.log(this.label+':', output)
+    console.log(output)
+    console.error(output)
   }
   process.nextTick(cb)
 }
