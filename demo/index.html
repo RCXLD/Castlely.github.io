@@ -4,28 +4,29 @@
     <title>Mocha</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
   </head>
   <body>
-
   </body>
-
-
-
 </html>
 
 
 <link rel="stylesheet" href="mocha.css" />
+<script src="chai.js"></script>
+<script src="mocha.js"></script>
+<script>
+mocha.setup({
+  ui: 'bdd',
+  reporter: 'json'
+});
+
+</script>
+<script src="tests.js"></script>
     <div id="mocha" ></div>
-    <script src="mocha.js"></script>
-    <script>mocha.setup('bdd');</script>
-    <script src="tests.js"></script>
   <script >
     function add(x, y) {
       return x + y;
     }
   </script>
-  <script src="chai.js"></script>
   <script>
       var expect = chai.expect;
 
@@ -47,6 +48,7 @@
 
         it('error', function() {
           console.error(456);
+          console.error(wrongProperty)
         });
       });
 
@@ -54,3 +56,4 @@
   <script>
     mocha.run();
   </script>
+  <script>console.log("@MQC@:FINISHED");console.log(b)</script>
