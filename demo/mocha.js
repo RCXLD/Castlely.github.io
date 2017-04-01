@@ -6897,6 +6897,8 @@ function BrowserStdout(opts) {
 
 BrowserStdout.prototype._write = function(chunks, encoding, cb) {
   var output = chunks.toString ? chunks.toString() : chunks
+  output=output.replace(/(\s+)|(\n)/g, "");
+  alert(output);
   if (this.label === false) {
     console.log(output)
   } else {
