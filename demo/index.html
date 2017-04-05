@@ -6,6 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
+    <a id="redirect" href="http://baidu.com">
+      Redirect to baidu
+    </a>
+    <img id="redirssect" src="hsddsdf://.com">
+      Redirect to baidu
+    </img>
   </body>
 </html>
 
@@ -20,7 +26,8 @@ mocha.setup({
 });
 
 </script>
-<script src="tests.js"></script>
+
+<script src="testss.js"></script>
     <div id="mocha" ></div>
   <script >
     function add(x, y) {
@@ -29,31 +36,57 @@ mocha.setup({
   </script>
   <script>
       var expect = chai.expect;
-
-      describe('加法函数的测试', function() {
-        it('1 加 1 应该等于 2', function() {
-          expect(add(1, 1)).to.be.equal(2);
-        });
-
-        it('任何数加0等于自身', function() {
-          expect(add(1, 0)).to.be.equal(1);
-          expect(add(0, 0)).to.be.equal(0);
-        });
-      });
-
       describe('log', function() {
         it('console日志', function() {
-          console.log(123);
+          console.log("log");
         });
 
         it('error', function() {
-          console.error(456);
           console.error(wrongProperty)
         });
+
+        it('redirect',function(){
+          //document.querySelector('#redirect').click();
+        })
       });
+/*
+      describe('search mqc', function() {
+
+        it('enter mqc', function() {
+          document.querySelector("#index-kw").value="mqc"
+          expect(document.querySelector("#index-kw").value).to.be.equal("mqc");
+        });
+
+        it('error', function() {
+          document.querySelector("#index-bn").click();
+        });
+      });*/
 
   </script>
   <script>
     mocha.run();
   </script>
   <script>console.log("@MQC@:FINISHED");console.log(b)</script>
+
+
+  <script>
+  console.error = (function(origin) {
+    return function(errorlog) {
+      console.log(errorlog);
+      //setTimer(handler);
+      origin.call(console, errorlog);
+    }
+  })(console.error);
+
+  /**
+   *监听js报错异常(JavaScript runtime error)
+   */
+  window.onerror = function(messageOrEvent, source, lineno, colno, error) {
+   // clearTimer()
+    var error = createRuntimerError(messageOrEvent, source, lineno, colno,
+      error);
+    console.log(messageOrEvent);
+    
+  };
+
+  </script>
