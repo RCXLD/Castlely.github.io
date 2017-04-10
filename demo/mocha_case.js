@@ -18,20 +18,20 @@ mocha.setup({
 
     before(function(done) {
       // runs after all tests in this block
-      console.log("MQCSignal:ScreenShotSuite Before");
+      console.log("MQC:SCREENSHOT:Before");
       setTimeout(done, MQCSleepTime);
     });
 
     after(function(done) {
       // runs after all tests in this block
-      console.log("MQCSignal:ScreenShotSuite After");
+      console.log("MQC:SCREENSHOT:After");
       setTimeout(done, MQCSleepTime);
     });
 
 
     beforeEach(function(done) {
       // runs before each test in this block
-      console.log("MQCSignal:ScreenShot Each");
+      console.log("MQC:SCREENSHOT:Each");
       setTimeout(done, MQCSleepTime);
     });
 

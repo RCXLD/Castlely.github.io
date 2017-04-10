@@ -57,8 +57,8 @@ var Stats = function () {
 					if(fpsValue>60){
 						fpsValue=60;
 					}
-					console.log("FPS:"+fpsValue.toFixed(0));
-					console.log("MS:"+MSValue.toFixed(0));
+					console.log("MQC:FPS:"+fpsValue.toFixed(0));
+					console.log("MQC:MS:"+MSValue.toFixed(0));
 				}
 
 				

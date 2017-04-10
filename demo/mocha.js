@@ -6902,7 +6902,7 @@ BrowserStdout.prototype._write = function(chunks, encoding, cb) {
     console.log(output)
   } else {
     //console.log(this.label+':', output)
-    console.log(output)
+    console.log("MQC:RESULT:"+output);
   }
   process.nextTick(cb)
 }
