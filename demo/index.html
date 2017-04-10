@@ -12,43 +12,18 @@
   </body>
 </html>
 
+
+<!-- Inject -->
+<!-- Monitor -->
+<script src="./../stats/build/stats.js"></script>
 <script src="mqc_monitor.js"></script>
-
-
+<!-- Mocha -->
 <script src="chai.js"></script>
 <script src="mocha.js"></script>
 <div id="mocha" ></div>
-
-
 <script src="mocha_case.js"></script>
 
 
-
+<!-- dirty code -->
 <script src="tests.js"></script>
 <script src="wrongJSPath.js"></script>
-
-
-
-<script src="./../stats/build/stats.js"></script>
-    <script>
-      var stats = new Stats();
-      stats.showPanel( 0 );
-      //document.body.appendChild( stats.dom );
-      /*
-      var canvas = document.createElement( 'canvas' );
-      canvas.width = 512;
-      canvas.height = 512;
-      document.body.appendChild( canvas );
-
-      var context = canvas.getContext( '2d' );
-      context.fillStyle = 'rgba(127,0,255,0.05)';
-      */
-      function animate() {
-        var time = performance.now() / 1000;
-        stats.begin();
-        stats.end();
-        requestAnimationFrame( animate );
-      }
-      animate();
-
-    </script>
