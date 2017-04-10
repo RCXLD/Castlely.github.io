@@ -48,9 +48,6 @@
   }, true);
 
 
-
-
-
 /**
 * FPS MS MEM
 */
@@ -59,6 +56,7 @@ stats.showPanel(0);
 var requestAnimationFrame = window["requestAnimationFrame"] || window["webkitRequestAnimationFrame"] ||
                 window["mozRequestAnimationFrame"] || window["oRequestAnimationFrame"] || window["msRequestAnimationFrame"];
 if(requestAnimationFrame==undefined){
+  console.log("MQCWARNING:LACKAF");
     requestAnimationFrame = function (callback) {
         return window.setTimeout(callback, 1000/60);
     };
