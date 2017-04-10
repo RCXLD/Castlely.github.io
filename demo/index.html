@@ -9,84 +9,46 @@
     <a id="redirect" href="http://baidu.com">
       Redirect to baidu
     </a>
-    <img id="redirssect" src="hsddsdf://.com">
-      Redirect to baidu
-    </img>
   </body>
 </html>
 
+<script src="mqc_monitor.js"></script>
 
-<link rel="stylesheet" href="mocha.css" />
+
 <script src="chai.js"></script>
 <script src="mocha.js"></script>
-<script>
-mocha.setup({
-  ui: 'bdd',
-  reporter: 'json'
-});
-
-</script>
-
-<script src="testss.js"></script>
-    <div id="mocha" ></div>
-  <script >
-    function add(x, y) {
-      return x + y;
-    }
-  </script>
-  <script>
-      var expect = chai.expect;
-      describe('log', function() {
-        it('console日志', function() {
-          console.log("log");
-        });
-
-        it('error', function() {
-          console.error(wrongProperty)
-        });
-
-        it('redirect',function(){
-          //document.querySelector('#redirect').click();
-        })
-      });
-/*
-      describe('search mqc', function() {
-
-        it('enter mqc', function() {
-          document.querySelector("#index-kw").value="mqc"
-          expect(document.querySelector("#index-kw").value).to.be.equal("mqc");
-        });
-
-        it('error', function() {
-          document.querySelector("#index-bn").click();
-        });
-      });*/
-
-  </script>
-  <script>
-    mocha.run();
-  </script>
-  <script>console.log("@MQC@:FINISHED");console.log(b)</script>
+<div id="mocha" ></div>
 
 
-  <script>
-  console.error = (function(origin) {
-    return function(errorlog) {
-      console.log(errorlog);
-      //setTimer(handler);
-      origin.call(console, errorlog);
-    }
-  })(console.error);
+<script src="mocha_case.js"></script>
 
-  /**
-   *监听js报错异常(JavaScript runtime error)
-   */
-  window.onerror = function(messageOrEvent, source, lineno, colno, error) {
-   // clearTimer()
-    var error = createRuntimerError(messageOrEvent, source, lineno, colno,
-      error);
-    console.log(messageOrEvent);
-    
-  };
 
-  </script>
+
+<script src="tests.js"></script>
+<script src="wrongJSPath.js"></script>
+
+
+
+<script src="./../stats/build/stats.js"></script>
+    <script>
+      var stats = new Stats();
+      stats.showPanel( 0 );
+      //document.body.appendChild( stats.dom );
+      /*
+      var canvas = document.createElement( 'canvas' );
+      canvas.width = 512;
+      canvas.height = 512;
+      document.body.appendChild( canvas );
+
+      var context = canvas.getContext( '2d' );
+      context.fillStyle = 'rgba(127,0,255,0.05)';
+      */
+      function animate() {
+        var time = performance.now() / 1000;
+        stats.begin();
+        stats.end();
+        requestAnimationFrame( animate );
+      }
+      animate();
+
+    </script>

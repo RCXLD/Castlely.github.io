@@ -75,15 +75,16 @@ var Stats = function () {
 			msPanel.update( time - beginTime, 200 );
 
 			var MSValue=time - beginTime;
-			if(MSValue>30){
-				console.log("MS:"+MSValue);
-			}
 
 			if ( time > prevTime + 1000 ) {
 				var fpsValue=( frames * 1000 ) / ( time - prevTime );
 				fpsPanel.update( ( frames * 1000 ) / ( time - prevTime ), 100 );
 				if(fpsValue>1){
-					console.log("FPS:"+fpsValue);
+					if(fpsValue>60){
+						fpsValue=60;
+					}
+					console.log("FPS:"+fpsValue.toFixed(0));
+					console.log("MS:"+MSValue.toFixed(0));
 				}
 
 				
@@ -96,7 +97,7 @@ var Stats = function () {
 					memPanel.update( memory.usedJSHeapSize / 1048576, memory.jsHeapSizeLimit / 1048576 );
 					var MemValue=memory.usedJSHeapSize / 1048576;
 					if(MemValue>1){
-						console.log("MEM:"+ MemValue);
+						//console.log("MEM:"+ MemValue);
 					}
 					
 				}

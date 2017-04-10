@@ -1,2 +1,1 @@
-console.log(tessss);
-console.log(tessss);
+console.log(wrongInOtherJs);

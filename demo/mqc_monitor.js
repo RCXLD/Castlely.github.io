@@ -1,5 +1,4 @@
-
- //定义的错误类型码
+//定义的错误类型码
   var ERROR_RUNTIME = 1,
     ERROR_SCRIPT = 2,
     ERROR_STYLE = 3,
@@ -7,12 +6,13 @@
     ERROR_AUDIO = 5,
     ERROR_VIDEO = 6,
     ERROR_CONSOLE = 7;
-  console.error = (function(origin) {
+ 
+ /* console.error = (function(origin) {
     return function(errorlog) {
-      console.log("CONSOLE MONITOR: "+errorlog);
+      console.log("MQC_CONSOLE_MONITOR: "+errorlog);
       origin.call(console, errorlog);
     }
-  })(console.error);
+  })(console.error);*/
 
 
   /**
@@ -21,7 +21,7 @@
   window.onerror = function(messageOrEvent, source, lineno, colno, error) {
    // clearTimer()
     var des=messageOrEvent + " at " + source + ":" + lineno + ":" + colno;
-    console.log("JS MORNITOR: "+des);
+    console.log("MQC_JS_MORNITOR: "+des);
   };
 
   /**
@@ -41,7 +41,7 @@
       if (errNode && ERR_TYPE[errNode.toUpperCase()]) {
         var des = err.target.baseURI + " refer to " + (err.target.src || err.target
           .href)+err;
-        console.log("LOAD MONITOR: "+des);
+        console.log("MQC_LOAD_MONITOR: "+des);
       }
     }
 
