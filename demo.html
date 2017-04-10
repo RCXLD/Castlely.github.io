@@ -39,25 +39,6 @@
             requestAnimationFrame(loop);
         };
 
-        /*
-        end: function () {
-
-            frames ++;
-            var time = ( performance || Date ).now();
-
-            var MSValue=time - beginTime;
-            if ( time > prevTime + 1000 ) {
-                var fpsValue=( frames * 1000 ) / ( time - prevTime );
-                fpsPanel.update( ( frames * 1000 ) / ( time - prevTime ), 100 );
-                if(fpsValue>1){
-                    if(fpsValue>60){
-                        fpsValue=60;
-                    }
-                    console.log("FPS:"+fpsValue.toFixed(0));
-                    console.log("MS:"+MSValue.toFixed(0));
-                }
-        */
-
 
         loop();
     };

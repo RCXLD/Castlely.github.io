@@ -11,18 +11,14 @@
 var Stats = function () {
 
 	var mode = 0;
-
 	var container = document.createElement( 'div' );
-	
-
 	function addPanel( panel ) {
 	}
 
 	function showPanel( id ) {
 	}
-
-
-	var beginTime = Date.now(), prevTime = beginTime, frames = 0;
+	var beginTime = Date.now();
+	var prevTime = beginTime, frames = 0;
 	var fpsPanel = addPanel( new Stats.Panel( 'FPS', '#0ff', '#002' ) );
 	var msPanel = addPanel( new Stats.Panel( 'MS', '#0f0', '#020' ) );
 
