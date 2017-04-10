@@ -1,9 +1,3 @@
-(function (global, factory) {
-	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
-	typeof define === 'function' && define.amd ? define(factory) :
-	(global.Stats = factory());
-}(this, (function () { 'use strict';
-
 /**
  * @author mrdoob / http://mrdoob.com/
  */
@@ -13,16 +7,39 @@ var Stats = function () {
 	var mode = 0;
 
 	var container = document.createElement( 'div' );
-	
+	container.style.cssText = 'position:fixed;top:0;left:0;cursor:pointer;opacity:0.9;z-index:10000';
+	container.addEventListener( 'click', function ( event ) {
+
+		event.preventDefault();
+		showPanel( ++ mode % container.children.length );
+
+	}, false );
+
+	//
 
 	function addPanel( panel ) {
+
+		container.appendChild( panel.dom );
+		return panel;
+
 	}
 
 	function showPanel( id ) {
+
+		for ( var i = 0; i < container.children.length; i ++ ) {
+
+			container.children[ i ].style.display = i === id ? 'block' : 'none';
+
+		}
+
+		mode = id;
+
 	}
 
+	//
 
 	var beginTime = ( performance || Date ).now(), prevTime = beginTime, frames = 0;
+
 	var fpsPanel = addPanel( new Stats.Panel( 'FPS', '#0ff', '#002' ) );
 	var msPanel = addPanel( new Stats.Panel( 'MS', '#0f0', '#020' ) );
 
@@ -55,13 +72,13 @@ var Stats = function () {
 
 			var time = ( performance || Date ).now();
 
-			//msPanel.update( time - beginTime, 200 );
+			msPanel.update( time - beginTime, 200 );
 
 			var MSValue=time - beginTime;
 
 			if ( time > prevTime + 1000 ) {
 				var fpsValue=( frames * 1000 ) / ( time - prevTime );
-				//fpsPanel.update( ( frames * 1000 ) / ( time - prevTime ), 100 );
+				fpsPanel.update( ( frames * 1000 ) / ( time - prevTime ), 100 );
 				if(fpsValue>1){
 					if(fpsValue>60){
 						fpsValue=60;
@@ -77,7 +94,7 @@ var Stats = function () {
 				if ( memPanel ) {
 
 					var memory = performance.memory;
-					//memPanel.update( memory.usedJSHeapSize / 1048576, memory.jsHeapSizeLimit / 1048576 );
+					memPanel.update( memory.usedJSHeapSize / 1048576, memory.jsHeapSizeLimit / 1048576 );
 					var MemValue=memory.usedJSHeapSize / 1048576;
 					if(MemValue>1){
 						//console.log("MEM:"+ MemValue);
@@ -107,8 +124,7 @@ var Stats = function () {
 };
 
 Stats.Panel = function ( name, fg, bg ) {
-	var canvas = document.createElement( 'div' );
-	/*
+
 	var min = Infinity, max = 0, round = Math.round;
 	var PR = round( window.devicePixelRatio || 1 );
 
@@ -136,13 +152,13 @@ Stats.Panel = function ( name, fg, bg ) {
 	context.fillStyle = bg;
 	context.globalAlpha = 0.9;
 	context.fillRect( GRAPH_X, GRAPH_Y, GRAPH_WIDTH, GRAPH_HEIGHT );
-*/
+
 	return {
 
 		dom: canvas,
 
 		update: function ( value, maxValue ) {
-/*
+
 			min = Math.min( min, value );
 			max = Math.max( max, value );
 
@@ -159,13 +175,11 @@ Stats.Panel = function ( name, fg, bg ) {
 			context.fillStyle = bg;
 			context.globalAlpha = 0.9;
 			context.fillRect( GRAPH_X + GRAPH_WIDTH - PR, GRAPH_Y, PR, round( ( 1 - ( value / maxValue ) ) * GRAPH_HEIGHT ) );
-*/
+
 		}
 
 	};
 
 };
 
-return Stats;
-
-})));
+export { Stats as default };

@@ -44,7 +44,7 @@ mocha.setup({
     });
   });
 
-  
+  /*
   describe('search mqc', function() {
     this.timeout(MQCSuiteTimeout);
     before(function(done) {
@@ -70,16 +70,7 @@ mocha.setup({
       document.querySelector('#redirect').click();
     });
 
-    /*
-    it('enter mqc', function() {
-      document.querySelector("#index-kw").value="mqc"
-      expect(document.querySelector("#index-kw").value).to.be.equal("mqc");
-    });
-
-    it('error', function() {
-      document.querySelector("#index-bn").click();
-    });*/
-  });
+  });*/
 
 }
 

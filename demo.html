@@ -18,15 +18,11 @@
             };
         }
 
-        var width = 480;
-        var height = 800;
-
         var time = Date.now();
         var _tick = 0;
-        var _maxDeltaTime = 5000;
+        var _maxDeltaTime = 1000;
         var _totalDeltaTime = 0;
         var frameStr = "";
-
 
         var loop = function (){
             _tick++;
@@ -41,12 +37,27 @@
             }
             
             requestAnimationFrame(loop);
-
-            //模拟比较卡的情况
-            for(var i = 0 ; i < 1000000 ; i++){
-                var test = Math.random();
-            }
         };
+
+        /*
+        end: function () {
+
+            frames ++;
+            var time = ( performance || Date ).now();
+
+            var MSValue=time - beginTime;
+            if ( time > prevTime + 1000 ) {
+                var fpsValue=( frames * 1000 ) / ( time - prevTime );
+                fpsPanel.update( ( frames * 1000 ) / ( time - prevTime ), 100 );
+                if(fpsValue>1){
+                    if(fpsValue>60){
+                        fpsValue=60;
+                    }
+                    console.log("FPS:"+fpsValue.toFixed(0));
+                    console.log("MS:"+MSValue.toFixed(0));
+                }
+        */
+
 
         loop();
     };
