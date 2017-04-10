@@ -10,10 +10,11 @@ mocha.setup({
 
 // 2. Suites && Cases
 {
-  var MQCSleepTime=5000;
+  var MQCSleepTime=2000;
+  var MQCSuiteTimeout=60000;
   var expect = chai.expect;
   describe('log', function() {
-    this.timeout(60000);
+    this.timeout(MQCSuiteTimeout);
 
     before(function(done) {
       // runs after all tests in this block
@@ -24,7 +25,6 @@ mocha.setup({
     after(function(done) {
       // runs after all tests in this block
       console.log("MQCSignal:ScreenShotSuite After");
-      console.log("@MQC@:FINISHED"); 
       setTimeout(done, MQCSleepTime);
     });
 
@@ -42,33 +42,35 @@ mocha.setup({
     it('error', function() {
       console.error(wrongProperty)
     });
-
-    it('redirect',function(){
-      //document.querySelector('#redirect').click();
-    })
   });
 
-  /*
+  
   describe('search mqc', function() {
+    this.timeout(MQCSuiteTimeout);
     before(function(done) {
       // runs after all tests in this block
       console.log("MQCSignal:ScreenShotSuiteBefore");
-      setTimeout(done, 5000);
+      setTimeout(done, MQCSleepTime);
     });
 
     beforeEach(function(done) {
       // runs before each test in this block
       console.log("MQCSignal:ScreenShot");
-      setTimeout(done, 5000);
+      setTimeout(done, MQCSleepTime);
     });
 
     after(function(done) {
       // runs after all tests in this block
       console.log("MQCSignal:ScreenShotSuiteAfter");
       console.log("@MQC@:FINISHED"); 
-      setTimeout(done, 5000);
+      setTimeout(done, MQCSleepTime);
     });
 
+    it('redirect',function(){
+      document.querySelector('#redirect').click();
+    });
+
+    /*
     it('enter mqc', function() {
       document.querySelector("#index-kw").value="mqc"
       expect(document.querySelector("#index-kw").value).to.be.equal("mqc");
@@ -76,8 +78,8 @@ mocha.setup({
 
     it('error', function() {
       document.querySelector("#index-bn").click();
-    });
-  });*/
+    });*/
+  });
 
 }
 
