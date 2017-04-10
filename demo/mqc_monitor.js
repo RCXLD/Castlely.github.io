@@ -56,7 +56,7 @@ stats.showPanel(0);
 var requestAnimationFrame = window["requestAnimationFrame"] || window["webkitRequestAnimationFrame"] ||
                 window["mozRequestAnimationFrame"] || window["oRequestAnimationFrame"] || window["msRequestAnimationFrame"];
 if(requestAnimationFrame==undefined){
-  console.log("MQC:LACKAF");
+    console.log("MQC:LACKAF");
     requestAnimationFrame = function (callback) {
         return window.setTimeout(callback, 1000/60);
     };

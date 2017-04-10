@@ -1,7 +1,3 @@
-function sleep(d){
-  for(var t = Date.now();Date.now() - t <= d;);
-}
-
 // 1. Set Up
 mocha.setup({
   ui: 'bdd',
