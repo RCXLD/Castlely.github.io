@@ -51,15 +51,14 @@
 
 
 
-  /**
-  * FPS MS MEM
-  */
+/**
+* FPS MS MEM
+*/
 var stats = new Stats();
 stats.showPanel(0);
 function animate() {
-var time = Date.now() / 1000;
-stats.begin();
-stats.end();
-requestAnimationFrame( animate );
+  stats.begin();
+  stats.end();
+  requestAnimationFrame( animate );
 }
 animate();
