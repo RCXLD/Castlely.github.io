@@ -57,7 +57,7 @@
 var stats = new Stats();
 stats.showPanel(0);
 function animate() {
-var time = performance.now() / 1000;
+var time = Date.now() / 1000;
 stats.begin();
 stats.end();
 requestAnimationFrame( animate );
