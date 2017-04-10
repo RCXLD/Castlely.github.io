@@ -40,7 +40,7 @@
       var errNode = err.target.nodeName;
       if (errNode && ERR_TYPE[errNode.toUpperCase()]) {
         var des = err.target.baseURI + " refer to " + (err.target.src || err.target
-          .href)+err;
+          .href);
         console.log("MQC_LOAD_MONITOR: "+des);
       }
     }
