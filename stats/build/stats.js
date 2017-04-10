@@ -26,11 +26,12 @@ var Stats = function () {
 	var fpsPanel = addPanel( new Stats.Panel( 'FPS', '#0ff', '#002' ) );
 	var msPanel = addPanel( new Stats.Panel( 'MS', '#0f0', '#020' ) );
 
+	/*
 	if ( self.performance && self.performance.memory ) {
 
 		var memPanel = addPanel( new Stats.Panel( 'MB', '#f08', '#201' ) );
 
-	}
+	}*/
 
 	showPanel( 0 );
 
@@ -73,9 +74,9 @@ var Stats = function () {
 				
 				prevTime = time;
 				frames = 0;
-
+				/*
 				if ( memPanel ) {
-
+					
 					var memory = performance.memory;
 					//memPanel.update( memory.usedJSHeapSize / 1048576, memory.jsHeapSizeLimit / 1048576 );
 					var MemValue=memory.usedJSHeapSize / 1048576;
@@ -83,7 +84,7 @@ var Stats = function () {
 						//console.log("MEM:"+ MemValue);
 					}
 					
-				}
+				}*/
 
 			}
 
