@@ -24,6 +24,7 @@ mocha.setup({
     after(function(done) {
       // runs after all tests in this block
       console.log("MQCSignal:ScreenShotSuite After");
+      console.log("@MQC@:FINISHED"); 
       setTimeout(done, MQCSleepTime);
     });
 
