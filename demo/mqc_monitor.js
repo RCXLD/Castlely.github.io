@@ -21,7 +21,7 @@
   window.onerror = function(messageOrEvent, source, lineno, colno, error) {
    // clearTimer()
     var des=messageOrEvent + " at " + source + ":" + lineno + ":" + colno;
-    console.log("MQC:JS_MORNITOR:"+des);
+    console.log("MQC:JS_MORNITOR:"+Date.now()+":"+des);
   };
 
   /**
@@ -41,7 +41,7 @@
       if (errNode && ERR_TYPE[errNode.toUpperCase()]) {
         var des = err.target.baseURI + " refer to " + (err.target.src || err.target
           .href);
-        console.log("MQC:LOAD_MONITOR:"+des);
+        console.log("MQC:LOAD_MONITOR:"+Date.now()+":"+des);
       }
     }
 
