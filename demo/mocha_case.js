@@ -18,7 +18,7 @@ mocha.setup({
       for(var a in this.test.parent.tests){
         testsName+=this.test.parent.tests[a].title+"&&&";
       }
-      console.log("MQC:SCREENSHOT:Before:"+Date.now()+":"+this.test.parent.title+"&&&"+testsName);
+      console.log("MQC:SCREENSHOT:"+Date.now()+":Before:"+this.test.parent.title+"&&&"+testsName);
       setTimeout(done, MQCSleepTime);
     });
 
@@ -28,14 +28,14 @@ mocha.setup({
       for(var a in this.test.parent.tests){
         testsName+=this.test.parent.tests[a].title+"&&&";
       }
-      console.log("MQC:SCREENSHOT:After:"+Date.now()+":"+this.test.parent.title+"&&&"+testsName);
+      console.log("MQC:SCREENSHOT:"+Date.now()+":After:"+this.test.parent.title+"&&&"+testsName);
       setTimeout(done, MQCSleepTime); 
     });
 
 
     beforeEach(function(done) {
       // runs before each test in this block
-      console.log("MQC:SCREENSHOT:Each:"+Date.now()+":"+this.currentTest.parent.fullTitle()+"&&&"+this.currentTest.title);
+      console.log("MQC:SCREENSHOT:"+Date.now()+":Each:"+this.currentTest.parent.fullTitle()+"&&&"+this.currentTest.title);
       setTimeout(done, MQCSleepTime);
     });
 
