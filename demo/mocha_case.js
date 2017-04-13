@@ -14,20 +14,20 @@ mocha.setup({
 
     before(function(done) {
       // runs after all tests in this block
-      console.log("MQC:SCREENSHOT:"+Date.now()+":BEFORE:"+this.test.parent.title);
+      console.log("MQC:SCREENSHOT:BEFORE:"+Date.now()+":"+this.test.parent.title);
       setTimeout(done, MQCSleepTime);
     });
 
     after(function(done) {
       // runs after all tests in this block
-      console.log("MQC:SCREENSHOT:"+Date.now()+":AFTER:"+this.test.parent.title);
+      console.log("MQC:SCREENSHOT:AFTER:"+Date.now()+":"+this.test.parent.title);
       setTimeout(done, MQCSleepTime); 
     });
 
 
     beforeEach(function(done) {
       // runs before each test in this block
-      console.log("MQC:SCREENSHOT:"+Date.now()+":EACH:"+this.currentTest.parent.fullTitle()+"&&&"+this.currentTest.title);
+      console.log("MQC:SCREENSHOT:EACH:"+Date.now()+":"+this.currentTest.parent.fullTitle()+"&&&"+this.currentTest.title);
       setTimeout(done, MQCSleepTime);
     });
 
