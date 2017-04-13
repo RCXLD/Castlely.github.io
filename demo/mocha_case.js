@@ -14,21 +14,13 @@ mocha.setup({
 
     before(function(done) {
       // runs after all tests in this block
-      var testsName="";
-      for(var a in this.test.parent.tests){
-        testsName+=this.test.parent.tests[a].title+"&&&";
-      }
-      console.log("MQC:SCREENSHOT:"+Date.now()+":Before:"+this.test.parent.title+"&&&"+testsName);
+      console.log("MQC:SCREENSHOT:"+Date.now()+":Before:"+this.test.parent.title);
       setTimeout(done, MQCSleepTime);
     });
 
     after(function(done) {
       // runs after all tests in this block
-      var testsName="";
-      for(var a in this.test.parent.tests){
-        testsName+=this.test.parent.tests[a].title+"&&&";
-      }
-      console.log("MQC:SCREENSHOT:"+Date.now()+":After:"+this.test.parent.title+"&&&"+testsName);
+      console.log("MQC:SCREENSHOT:"+Date.now()+":After:"+this.test.parent.title);
       setTimeout(done, MQCSleepTime); 
     });
 
