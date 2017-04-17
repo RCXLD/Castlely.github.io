@@ -6,8 +6,8 @@ mocha.setup({
 
 // 2. Suites && Cases
 {
-  var MQCSleepTime=5000;
-  var MQCSuiteTimeout=60000;
+  var MQCSleepTime=10000;
+  var MQCSuiteTimeout=600000;
   var expect = chai.expect;
   describe('log', function() {
     this.timeout(MQCSuiteTimeout);
