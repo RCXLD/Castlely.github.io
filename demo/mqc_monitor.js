@@ -21,7 +21,7 @@
   window.onerror = function(messageOrEvent, source, lineno, colno, error) {
    // clearTimer()
     var des=messageOrEvent + " at " + source + ":" + lineno + ":" + colno;
-    console.log("MQC:JS_MORNITOR:"+Date.now()+":"+des);
+    console.log("MQC:JS_MONITOR:"+Date.now()+":"+des);
   };
 
   /**
