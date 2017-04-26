@@ -27,7 +27,13 @@ mocha.setup({
 
     beforeEach(function(done) {
       // runs before each test in this block
-      console.log("MQC:SCREENSHOT:EACH:"+Date.now()+":"+this.currentTest.parent.fullTitle()+"&&&"+this.currentTest.title);
+      console.log("MQC:SCREENSHOT:BEFOREEACH:"+Date.now()+":"+this.currentTest.parent.fullTitle()+"&&&"+this.currentTest.title);
+      setTimeout(done, MQCSleepTime);
+    });
+
+    afterEach(function(done) {
+      // runs before each test in this block
+      console.log("MQC:SCREENSHOT:AFTEREACH:"+Date.now()+":"+this.currentTest.parent.fullTitle()+"&&&"+this.currentTest.title);
       setTimeout(done, MQCSleepTime);
     });
 
