@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test</title>
+    <style>
+        body {
+            background-color: darkkhaki;
+            width: 360px;
+            height: 600px;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+</head>
+<body id="content">
+<script>
+    $('body').on('touchstart touchmove touchend', function (event) {
+        console.log('>>>>>>>touch ' + event.type);
+        var x = event.originalEvent.touches;
+        console.log("page x: " + event.originalEvent.a);
+    });
+    $(document).ready(function () {
+        setTimeout(function () {
+            console.log('>>>>>>generate touch:');
+            var event = document.createEvent('TouchEvent');
+            event.initUIEvent('touchstart', true, true);
+            event.a='111';
+            event.touches = [
+                {
+                    pageX: 10
+                }
+            ];
+            var element = document.getElementById('content');
+            element.dispatchEvent(event);
+        }, 2000);
+    });
+</script>
+</body>
+</html>
