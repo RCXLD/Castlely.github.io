@@ -3036,18 +3036,58 @@ function JSONReporter (runner) {
 
   runner.on('test end', function (test) {
     tests.push(test);
+
+    var obj = {
+      stats: self.stats,
+      tests: tests.map(clean),
+      pending: pending.map(clean),
+      failures: failures.map(clean),
+      passes: passes.map(clean)
+    };
+    runner.testResults = obj;
+    process.stdout.write(JSON.stringify(obj, null, 2));
   });
 
   runner.on('pass', function (test) {
     passes.push(test);
+
+    var obj = {
+      stats: self.stats,
+      tests: tests.map(clean),
+      pending: pending.map(clean),
+      failures: failures.map(clean),
+      passes: passes.map(clean)
+    };
+    runner.testResults = obj;
+    process.stdout.write(JSON.stringify(obj, null, 2));
   });
 
   runner.on('fail', function (test) {
     failures.push(test);
+
+    var obj = {
+      stats: self.stats,
+      tests: tests.map(clean),
+      pending: pending.map(clean),
+      failures: failures.map(clean),
+      passes: passes.map(clean)
+    };
+    runner.testResults = obj;
+    process.stdout.write(JSON.stringify(obj, null, 2));
   });
 
   runner.on('pending', function (test) {
     pending.push(test);
+
+    var obj = {
+      stats: self.stats,
+      tests: tests.map(clean),
+      pending: pending.map(clean),
+      failures: failures.map(clean),
+      passes: passes.map(clean)
+    };
+    runner.testResults = obj;
+    process.stdout.write(JSON.stringify(obj, null, 2));
   });
 
   runner.on('end', function () {
@@ -3058,9 +3098,7 @@ function JSONReporter (runner) {
       failures: failures.map(clean),
       passes: passes.map(clean)
     };
-
     runner.testResults = obj;
-
     process.stdout.write(JSON.stringify(obj, null, 2));
   });
 }
