@@ -125,8 +125,8 @@ mocha.setup({
 
 
 // 3. Run
-//mocha.run();
-mocha.run()
+mocha.run();
+/*mocha.run()
     .on('test', function(test) {
         console.log('Test started: '+test.title);
     })
@@ -147,4 +147,4 @@ mocha.run()
     })
     .on('end', function() {
         console.log('All done');
-    });
+    });*/
