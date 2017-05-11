@@ -17,12 +17,13 @@ mocha.setup({
       console.log("MQC:SCREENSHOT:BEFORE:"+Date.now()+":"+this.test.parent.title);
       setTimeout(done, MQCSleepTime);
     });
-    /*
+    
+    /* 有了after函数就必须等了！！！！！！*/
     after(function(done) {
       // runs after all tests in this block
       console.log("MQC:SCREENSHOT:AFTER:"+Date.now()+":"+this.test.parent.title);
       setTimeout(done, MQCSleepTime); 
-    });*/
+    });
 
     /*
     beforeEach(function(done) {
@@ -31,37 +32,35 @@ mocha.setup({
       setTimeout(done, MQCSleepTime);
     });*/
 
-    
+    /*
     afterEach(function(done) {
       // runs before each test in this block
       console.log("MQC:SCREENSHOT:AFTEREACH:"+Date.now()+":"+this.currentTest.parent.fullTitle()+"&&&"+this.currentTest.title);
       setTimeout(done, 0);
       console.log(arguments,this);
       // done();
-    });
+    });*/
 
     it('redirect',function(){
-     // document.querySelector('#redirect').click();
+      document.querySelector('#redirect').click();
       setTimeout("console.log('11222')", 0);
     });
   
     it('console日志', function() {
       console.log("log");
       var b=0;
-      for(var i=0;i<100;i++){
-        b+=i;
-      }
+      setTimeout("console.log('11222')", 10000);
     });
 
     it('error', function() {
-      var b=0;
-      for(var i=0;i<100;i++){
-        b+=i;
-      }
+      
+      setTimeout("console.log('11222')", 10000);
       console.error(wrongProperty)
     });
 
     it('上滑', function() {
+
+      setTimeout("console.log('11222')", 10000);
       console.log('MQC:ACTION:SWIPEDOWN:'+Date.now()+':2'+this.test.parent.title);
     });
 
