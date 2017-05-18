@@ -163,6 +163,7 @@ Stats.Panel = function ( name, fg, bg ) {
 
 };
 
+window.Stats=Stats;
 return Stats;
 
 })));
