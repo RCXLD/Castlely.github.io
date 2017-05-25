@@ -55,7 +55,7 @@ var Stats = function () {
 
 			var MSValue=time - beginTime;
 
-			if ( time > prevTime + 200 ) {
+			if ( time > prevTime + 500 ) {
 				var fpsValue=( frames * 1000 ) / ( time - prevTime );
 				//fpsPanel.update( ( frames * 1000 ) / ( time - prevTime ), 100 );
 				if(fpsValue>1){
