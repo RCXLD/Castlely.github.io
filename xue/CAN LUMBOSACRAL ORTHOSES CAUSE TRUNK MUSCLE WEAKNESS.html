@@ -1,0 +1,114 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <!-- common.css -->
+      <style>* {-webkit-tap-highlight-color: rgba(0,0,0,0);}html {-webkit-text-size-adjust: none;}body {font-family: -apple-system, Helvetica, Arial, sans-serif;margin: 0;padding: 20px;color: #333;word-wrap: break-word;}h1, h2, h3, h4, h5, h6 {line-height: 1.1;}img {max-width: 100% !important;height: auto;}blockquote {margin: 0;padding: 0 15px;color: #777;border-left: 4px solid #ddd;}hr {background-color: #ddd;border: 0;height: 1px;margin: 15px 0;}code {font-family: Menlo, Consolas, 'Ubuntu Mono', Monaco, 'source-code-pro', monospace;line-height: 1.4;margin: 0;padding: 0.2em 0;font-size: 90%;background-color: rgba(0,0,0,0.04);border-radius: 3px;}pre > code {margin: 0;padding: 0;font-size: 100%;word-break: normal;background: transparent;border: 0;}ol {list-style-type: decimal;}ol ol, ul ol {list-style-type: lower-latin;}ol ol ol, ul ol ol, ul ul ol, ol ul ol {list-style-type: lower-roman;}table {border-spacing: 0;border-collapse: collapse;margin-top: 0;margin-bottom: 16px;}table th {font-weight: bold;}table th, table td {padding: 6px 13px;border: 1px solid #ddd;}table tr {border-top: 1px solid #ccc;}table tr:nth-child(even) {background-color: #f8f8f8;}input[type="checkbox"] {cursor: default;margin-right: 0.5em;font-size: 13px;}.task-list-item {list-style-type: none;}.task-list-item+.task-list-item {margin-top: 3px;}.task-list-item input {float: left;margin: 0.3em 1em 0.25em -1.6em;vertical-align: middle;}#tag-field {margin: 8px 2px 10px;}#tag-field .tag {display: inline-block;background: #cadff3;border-radius: 4px;padding: 1px 8px;color: black;font-size: 12px;margin-right: 10px;line-height: 1.4;}</style>
+      <!-- ace-static.css -->
+      <style>.ace_static_highlight {white-space: pre-wrap;}.ace_static_highlight .ace_gutter {width: 2em;text-align: right;padding: 0 3px 0 0;margin-right: 3px;}.ace_static_highlight.ace_show_gutter > .ace_line {padding-left: 2.6em;}.ace_static_highlight .ace_line {position: relative;}.ace_static_highlight .ace_gutter-cell {-moz-user-select: -moz-none;-khtml-user-select: none;-webkit-user-select: none;user-select: none;top: 0;bottom: 0;left: 0;position: absolute;}.ace_static_highlight .ace_gutter-cell:before {content: counter(ace_line, decimal);counter-increment: ace_line;}.ace_static_highlight {counter-reset: ace_line;}</style>
+      <style>.ace-chrome .ace_gutter {background: #ebebeb;color: #333;overflow : hidden;}.ace-chrome .ace_print-margin {width: 1px;background: #e8e8e8;}.ace-chrome {background-color: #FFFFFF;color: black;}.ace-chrome .ace_cursor {color: black;}.ace-chrome .ace_invisible {color: rgb(191, 191, 191);}.ace-chrome .ace_constant.ace_buildin {color: rgb(88, 72, 246);}.ace-chrome .ace_constant.ace_language {color: rgb(88, 92, 246);}.ace-chrome .ace_constant.ace_library {color: rgb(6, 150, 14);}.ace-chrome .ace_invalid {background-color: rgb(153, 0, 0);color: white;}.ace-chrome .ace_fold {}.ace-chrome .ace_support.ace_function {color: rgb(60, 76, 114);}.ace-chrome .ace_support.ace_constant {color: rgb(6, 150, 14);}.ace-chrome .ace_support.ace_type,.ace-chrome .ace_support.ace_class.ace-chrome .ace_support.ace_other {color: rgb(109, 121, 222);}.ace-chrome .ace_variable.ace_parameter {font-style:italic;color:#FD971F;}.ace-chrome .ace_keyword.ace_operator {color: rgb(104, 118, 135);}.ace-chrome .ace_comment {color: #236e24;}.ace-chrome .ace_comment.ace_doc {color: #236e24;}.ace-chrome .ace_comment.ace_doc.ace_tag {color: #236e24;}.ace-chrome .ace_constant.ace_numeric {color: rgb(0, 0, 205);}.ace-chrome .ace_variable {color: rgb(49, 132, 149);}.ace-chrome .ace_xml-pe {color: rgb(104, 104, 91);}.ace-chrome .ace_entity.ace_name.ace_function {color: #0000A2;}.ace-chrome .ace_heading {color: rgb(12, 7, 255);}.ace-chrome .ace_list {color:rgb(185, 6, 144);}.ace-chrome .ace_marker-layer .ace_selection {background: rgb(181, 213, 255);}.ace-chrome .ace_marker-layer .ace_step {background: rgb(252, 255, 0);}.ace-chrome .ace_marker-layer .ace_stack {background: rgb(164, 229, 101);}.ace-chrome .ace_marker-layer .ace_bracket {margin: -1px 0 0 -1px;border: 1px solid rgb(192, 192, 192);}.ace-chrome .ace_marker-layer .ace_active-line {background: rgba(0, 0, 0, 0.07);}.ace-chrome .ace_gutter-active-line {background-color : #dcdcdc;}.ace-chrome .ace_marker-layer .ace_selected-word {background: rgb(250, 250, 255);border: 1px solid rgb(200, 200, 250);}.ace-chrome .ace_storage,.ace-chrome .ace_keyword,.ace-chrome .ace_meta.ace_tag {color: rgb(147, 15, 128);}.ace-chrome .ace_string.ace_regex {color: rgb(255, 0, 0)}.ace-chrome .ace_string {color: #1A1AA6;}.ace-chrome .ace_entity.ace_other.ace_attribute-name {color: #994409;}.ace-chrome .ace_indent-guide {background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAE0lEQVQImWP4////f4bLly//BwAmVgd1/w11/gAAAABJRU5ErkJggg==") right repeat-y;}</style>
+      <!-- export.css -->
+      <style>
+        body{margin:0 auto;max-width:800px;line-height:1.4}
+        #nav{margin:5px 0 10px;font-size:15px}
+        #titlearea{border-bottom:1px solid #ccc;font-size:17px;padding:10px 0;}
+        #contentarea{font-size:15px;margin:16px 0}
+        .cell{outline:0;min-height:20px;margin:5px 0;padding:5px 0;}
+        .code-cell{font-family:Menlo,Consolas,'Ubuntu Mono',Monaco,'source-code-pro',monospace;font-size:12px;}
+        .latex-cell{white-space:pre-wrap;}
+      </style>
+      <!-- User CSS -->
+      <style> .text-cell {font-size: 15px;}.code-cell {font-size: 12px;}.markdown-cell {font-size: 15px;}.latex-cell {font-size: 15px;}</style>
+    </head>
+    <body>
+      
+      <div id="titlearea">
+        <h2>CAN LUMBOSACRAL ORTHOSES CAUSE TRUNK MUSCLE WEAKNESS</h2>
+      </div>
+      <div id="contentarea"><div class="cell text-cell">
+		
+	
+	
+		<div class="page" title="Page 1">
+			<div class="layoutArea">
+				<div class="column">
+					<p><span style="font-size: 14.000000pt; font-family: 'HelveticaNeueLTStd'; font-weight: 700">CAN LUMBOSACRAL ORTHOSES CAUSE TRUNK MUSCLE WEAKNESS?
+A SYSTEMATIC REVIEW OF LITERATURE.
+</span></p>
+					<p><span style="font-size: 10.000000pt; font-family: 'HelveticaNeueLTStd'">Fatemeh Azadinia, PhD Candidate, Esmaeil Ebrahimi Takamjani, PhD, Mojtaba Kamyab, PhD,
+Mohamad Parnianpour, PhD, Jacek Cholewicki, PhD, Nader Maroufi, PhD
+</span></p>
+				</div>
+			</div>
+			<div class="layoutArea">
+				<div class="column">
+					<p><span style="font-size: 8.000000pt; font-family: 'HelveticaNeueLTStd'">The Spine Journal, received 8 July 2016; revised 14 November 2016; accepted 9 December 2016
+</span></p>
+				</div>
+			</div>
+			<div class="section" style="background-color: rgb(90.300000%, 90.700000%, 91.000000%)">
+				<div class="layoutArea">
+					<div class="column">
+						<p><span style="font-size: 9.000000pt; font-family: 'HelveticaNeueLTStd'; font-weight: 700">BACKGROUND: </span><span style="font-size: 9.000000pt; font-family: 'HelveticaNeueLTStd'">Wearing lumbosacral orthosis (LSO) is one of the most common treatments prescribed for conservative
+management of low back pain. Although the results of randomized controlled trials suggest effectiveness of LSO in reducing pain
+and disability in these patients, there is a concern that prolonged use of LSO may lead to trunk muscle weakness and atrophy.
+</span><span style="font-size: 9.000000pt; font-family: 'HelveticaNeueLTStd'; font-weight: 700">PURPOSE: </span><span style="font-size: 9.000000pt; font-family: 'HelveticaNeueLTStd'">The present review aimed to evaluate available evidence in literature to determine whether LSO results in trunk muscle
+weakness or atrophy. </span><span style="font-size: 9.000000pt; font-family: 'HelveticaNeueLTStd'; font-weight: 700">STUDY DESIGN: </span><span style="font-size: 9.000000pt; font-family: 'HelveticaNeueLTStd'">This is a systematic review. </span><span style="font-size: 9.000000pt; font-family: 'HelveticaNeueLTStd'; font-weight: 700">METHODS: </span><span style="font-size: 9.000000pt; font-family: 'HelveticaNeueLTStd'">A systematic search of electronic databases
+including PubMed, Scopus, ScienceDirect, and Medline (via Ovid) followed by hand search of journals was performed. Prospective
+studies published in peer-reviewed journals, with full text available in English, investigating the effect of lumbar orthosis on trunk
+muscle activity, muscle thickness, strength or endurance, spinal force, and intra-abdominal pressure in healthy subjects or in
+patients with low back pain, were included. Methodological quality of selected studies was assessed by using the modified
+version of Downs and Black checklist. This research had no funding source, and the authors declare no conflicts of interest-
+associated biases. </span><span style="font-size: 9.000000pt; font-family: 'HelveticaNeueLTStd'; font-weight: 700">RESULTS: </span><span style="font-size: 9.000000pt; font-family: 'HelveticaNeueLTStd'">Thirty-five studies fulfilled the eligibility criteria. The mean and standard deviation of the quality
+score was 64±9.7%. Most studies investigating the effect of lumbar orthosis on electromyographic activity (EMG) of trunk muscles
+demonstrated a decrease or no change in the EMG parameters. A few studies reported increased muscle activity. Lumbosacral
+orthosis was found to have no effect on muscle strength in some studies, whereas other studies demonstrated increased muscle
+strength. Only one study, which included ultrasound assessment of trunk muscle stabilizers, suggested reduced thickness of
+the abdominal muscles and reduced cross-sectional area of the multifidus muscles. Out of eight studies that investigated spinal
+compression load, the load was reduced in four studies and unchanged in three studies. One study showed that only elastic
+belts reduced compression force compared to leather and fabric belts and ascribed this reduction to the elastic property of the
+lumbar support. </span><span style="font-size: 9.000000pt; font-family: 'HelveticaNeueLTStd'; font-weight: 700">CONCLUSION: </span><span style="font-size: 9.000000pt; font-family: 'HelveticaNeueLTStd'">The present review showed that the changes in outcome measures associated with muscle work
+demands were inconsistent in their relation to the use of lumbar supports. This review did not find conclusive scientific evidence
+to suggest that orthosis results in trunk muscle weakness.
+</span></p>
+					</div>
+				</div>
+			</div>
+			<div class="layoutArea"><div class="column"><p><span style="font-size: 8pt; font-family: HelveticaNeueLTStd;">_____</span></p></div></div><div class="layoutArea"><div class="column"></div></div><div class="layoutArea">
+				<div class="column">
+					<p><span style="font-size: 11.000000pt; font-family: 'HelveticaNeueLTStd'; font-weight: 700">Introduction
+</span></p>
+				</div>
+				<div class="column">
+					<p><span style="font-size: 12.000000pt; font-family: 'HelveticaNeueLTStd'; font-weight: 700">SELECTED QUOTATIONS
+</span></p>
+				</div>
+			</div>
+			<div class="layoutArea"><div class="column"><p><span style="font-size: 8pt; font-family: HelveticaNeueLTStd;">_____</span></p></div></div><div class="layoutArea"><div class="column"></div></div><div class="layoutArea">
+				<div class="column">
+					<p><span style="font-size: 8.000000pt; font-family: 'HelveticaNeueLTStd'">“While the randomized controlled trials suggest effectiveness of LSO in reducing symptoms of pain and disability in patients with LBP [17, 18], there is
+a concern that prolonged use of LSO may result in trunk muscle weakness and atrophy. The present review aimed to...determine whether LSO results
+in trunk muscle weakness and/or atrophy.” (Pg. 5)
+</span></p>
+					<p><span style="font-size: 11.000000pt; font-family: 'HelveticaNeueLTStd'; font-weight: 700">Results
+</span></p>
+					<p><span style="font-size: 8.000000pt; font-family: 'HelveticaNeueLTStd'">“Literature search was conducted, corresponding to the period from January 1990 to July 2015.” (Pg. 5)
+“A total of 35 studies were included in this systematic review.” (Pg. 8)
+</span></p>
+					<p><span style="font-size: 11.000000pt; font-family: 'HelveticaNeueLTStd'; font-weight: 700">Conclusion
+</span></p>
+					<p><span style="font-size: 8.000000pt; font-family: 'HelveticaNeueLTStd'">“Upon analyzing the effect of LSO on the strength of the back and abdominal muscles, some studies reported no change, while others reported an
+increase in the strength of flexor or extensor muscles.” (Pg. 20)
+</span></p>
+					<p><span style="font-size: 8.000000pt; font-family: 'HelveticaNeueLTStd'">“This review did not find conclusive scientific evidence to suggest that orthosis result in trunk muscle weakness.” (Pg. 22)</span></p><p><span style="font-size: 8.000000pt; font-family: 'HelveticaNeueLTStd'">_____</span></p></div></div><div class="layoutArea">
+				<div class="column">
+					<p><span style="font-size: 6.000000pt; font-family: 'HelveticaNeueLTStd'">STU535A 05/17&nbsp;</span></p>
+				</div>
+			</div>
+		</div></div></div>
+      <script></script>
+    </body>
+    </html>
+  
